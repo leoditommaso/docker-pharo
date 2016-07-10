@@ -3,6 +3,8 @@
 Run Pharo on any Docker enabled system (ideal to execute Pharo easily on 64 bits
 operating systems).
 
+Este README también está [disponible en Español](README-ES.md).
+
 ## Table of contents
 
 * [Quick start guide](#quick-start-guide)
