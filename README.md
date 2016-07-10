@@ -3,14 +3,41 @@
 Run Pharo on any Docker enabled system (ideal to execute Pharo easily on 64 bits
 operating systems).
 
-## Directory to save data
+## Table of contents
 
-Pharo image and produced data will be saved in a volume. For that matter, you
-should create a folder where you would like to save all your work. For the usage
-examples below, we will be using $HOME/pharo but you could choose any location
-you prefer. Have in mind that the folder you use must exist on your system.
+* [Quick start guide](#quick-start-guide)
+* [A (not much) more detailed explanation](#a-not-much-more-detailed-explanation)
+  * [Running on Linux](running-on-linux)
+  * [Running on Mac](running-on-mac)
+* [Authors](#authors)
 
-## Linux
+## Quick start guide
+
+To get up and running quickly, on Linux, copy and paste the following lines:
+
+```
+mkdir $HOME/pharo
+xhost +SI:localuser:root
+docker run -e DISPLAY=$DISPLAY \
+           -v $HOME/pharo:/data \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           --rm -it leoditommaso/pharo
+```
+
+## A (not much) more detailed explanation
+
+There's no need to clone this repo to run the container, as it is an automated
+build on Docker Hub.
+
+### Pharo data
+
+Pharo image and produced data will be saved in a Docker volume. For that matter,
+you should create a folder where you would like to save all your work. For the
+usage examples below, we will be using $HOME/pharo but you could choose any
+location you prefer. Have in mind that the folder you use must exist on your
+system.
+
+### Running on Linux
 
 Enable access for root user to X server:
 
@@ -27,7 +54,7 @@ docker run -e DISPLAY=$DISPLAY \
            --rm -it leoditommaso/pharo
 ```
 
-## Mac
+### Running on Mac
 
 To run Pharo on Mac, you need to install socat and XQuartz.
 
